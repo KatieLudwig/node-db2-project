@@ -1,11 +1,23 @@
+const db = require("../../database/dbConfig");
+
 const getAll = () => {
-  
+  return db("cars");
 }
 
 const getById = () => {
-  // DO YOUR MAGIC
+  return db("cars")
+  .where('id', id)
+  .first();
 }
 
 const create = () => {
-  // DO YOUR MAGIC
+  return db("cars")
+  .insert(car)
+  .then(([id]) => getById(id));
+}
+
+module.exports = {
+  getAll,
+  getById,
+  create
 }
