@@ -1,17 +1,17 @@
-const db = require("../../database/dbConfig");
+const db = require("../../data/db-config");
 
-const getAll = () => {
-  return db("cars");
+function getAll() {
+  return db('cars');
 }
 
-const getById = () => {
-  return db("cars")
+function getById(id) {
+  return db('cars')
   .where('id', id)
   .first();
 }
 
-const create = () => {
-  return db("cars")
+function create(car) {
+  return db('cars')
   .insert(car)
   .then(([id]) => getById(id));
 }
